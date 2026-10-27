@@ -1,3 +1,5 @@
 name = "sveltia-cms-auth"
+account_id = "e78d5ea9600fe361d56d3567a9494536"
+workers_dev = true
 main = "src/index.js"
 compatibility_date = "2023-03-24"
