@@ -272,7 +272,15 @@ const handleCallback = async (request, env) => {
     });
   }
 
-  return outputHTML({ provider, token, error });
+  if (!response.ok || error || typeof token !== 'string' || !token.trim()) {
+    return outputHTML({
+      provider,
+      error: typeof error === 'string' && error ? error : 'Failed to receive an access token.',
+      errorCode: 'TOKEN_REQUEST_FAILED',
+    });
+  }
+
+  return outputHTML({ provider, token });
 };
 
 export default {
